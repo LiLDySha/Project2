@@ -11,7 +11,7 @@ int main()
 	srand(time(NULL));
 
 	int a = rand() % 5 + 5;
-	int arr[20]{ };
+	int arr[20]{};
 
 	std::cout << arr[5];
 
