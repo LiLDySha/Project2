@@ -21,8 +21,14 @@ int main()
 
 	for (int i = 0; i < size; i++)
 	{
-		std::cout << "Введите числа в массив: ";
+		std::cout << "Введите числа в массив (от 0 до 10 включительно): ";
 		std::cin >> mas[i];
+
+		if (mas[i] < 0 || mas[i] > 10)
+		{
+			std::cout << "Ты того сего не делай, понял?";
+			return 0;
+		}
 	}
 
 	for (int i = 0; i < size; i++)
@@ -34,7 +40,7 @@ int main()
 	{
 		std::cout << "Массив вашевич " << mas[i] << std::endl;
 	}
-
+	
 	for (int i = 0; i < size; i++)
 	{
 		if (mas[i] == arr[i])
