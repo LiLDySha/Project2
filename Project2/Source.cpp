@@ -2,6 +2,26 @@
 #include <Windows.h>
 #include <cstdlib>
 
+int Sum(int chisl1, int chisl2)
+{
+	return chisl1 + chisl2;
+}
+
+int Minus(int chisl1, int chisl2)
+{
+	return chisl1 - chisl2;
+}
+
+double Delen(int chisl1, int chisl2)
+{
+	return chisl1 / chisl2;
+}
+
+int Umnozh(int chisl1, int chisl2)
+{
+	return chisl1 * chisl2;
+}
+
 int main()
 {
 	SetConsoleCP(1251);
@@ -9,49 +29,47 @@ int main()
 
 	setlocale(LC_ALL, "ru");
 	srand(time(NULL));
-
-	const int size = 10;
-	int arr[size];
-	int mas[size];
-
-	for (int i = 0; i < size; i++)
+	while (true)
 	{
-		arr[i] = rand() % 11;
-	}
+		int chisl1 = 0;
+		int chisl2 = 0;
+		int op = 0;
+		std::cout << "\nВведите первое число --> ";
+		std::cin >> chisl1;
+		std::cout << "\nВыберите операцию";
+		std::cout << "\n1) +";
+		std::cout << "\n2) -";
+		std::cout << "\n3) /";
+		std::cout << "\n4) *";
+		std::cout << "\n--> ";
+		std::cin >> op;
+		std::cout << "\nВведите второе число --> ";
+		std::cin >> chisl2;
 
-	for (int i = 0; i < size; i++)
-	{
-		std::cout << "Введите числа в массив (от 0 до 10 включительно): ";
-		std::cin >> mas[i];
-
-		if (mas[i] < 0 || mas[i] > 10)
+		if (op == 1)
 		{
-			std::cout << "Ты того сего не делай, понял?";
-			return 0;
+			std::cout << Sum(chisl1, chisl2);
+		}
+		else if (op == 2)
+		{
+			std::cout << Minus(chisl1, chisl2);
+		}
+		else if (op == 3)
+		{
+			if (chisl2 == 0)
+			{
+				std::cout << "Делить на ноль незя";
+				continue;
+			}
+			else
+			{
+				std::cout << Delen(chisl1, chisl2);
+			}
+		}
+		else if (op == 4)
+		{
+			std::cout << Umnozh(chisl1, chisl2);
 		}
 	}
-
-	for (int i = 0; i < size; i++)
-	{
-		std::cout << "Массив рандомнович " << arr[i] << std::endl;
-	}
-
-	for (int i = 0; i < size; i++)
-	{
-		std::cout << "Массив вашевич " << mas[i] << std::endl;
-	}
-	
-	for (int i = 0; i < size; i++)
-	{
-		if (mas[i] == arr[i])
-		{
-			std::cout << "\nТы удачник, в " << i <<  " номер попал";
-		}
-		else
-		{
-			std::cout << "\nНеудачник, ло... как там... ай не помню, того ты понял да? " << i;
-		}
-	}
-
 	return 0;
 }
